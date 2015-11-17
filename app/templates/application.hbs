@@ -1,3 +1,60 @@
-<h2 id="title">Welcome to Ember</h2>
+<style>
+#footer{
+	background-color:#2196F3;	
+}
+#footer a{
+	color: white;
+}
+#footer li{
+	list-style-type: none;
+	display: inline-block;
+	margin-right:20px;
+}
+.btn{
+	border-radius: 0px;
+}
+.container-outlet{
+	min-height: 600px;
+}
+</style>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'index' class="navbar-brand"}}My Ember App{{/link-to}}
+    </div>
 
-{{outlet}}
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        {{#link-to 'about' tagName='li'}}{{#link-to 'about'}}About Page{{/link-to}}{{/link-to}}        
+        <li class="dropdown">        	
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Store <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            {{#link-to 'store.consumer' tagName='li'}}{{#link-to 'store.consumer'}}Store/Consumer Page{{/link-to}}{{/link-to}}
+            {{#link-to 'store.commercial' tagName='li'}}{{#link-to 'store.commercial'}}Store/Commercial Page{{/link-to}}{{/link-to}}
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        {{#link-to 'contact' tagName='li'}}{{#link-to 'contact'}}Contact Page{{/link-to}}{{/link-to}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+	<div class="container-outlet">{{outlet}}</div>	
+</div>
+
+<div class="row text-center" id="footer">		
+	<li>{{#link-to 'index'}}Home{{/link-to}}</li>
+	<li>{{#link-to 'contact'}}Contact Page{{/link-to}}</li>
+	<li>{{#link-to 'store.consumer'}}Store/Consumer Page{{/link-to}}</li>
+    <li>{{#link-to 'store.commercial'}}Store/Commercial Page{{/link-to}}</li>
+</div>
